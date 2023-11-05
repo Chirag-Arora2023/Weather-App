@@ -28,13 +28,25 @@
 .loading-screen-container{
     scale: 0;
 }
-.active{
-    scale: 1;
-}
-.data-weather-info-container{
+.grant-access-container{
     scale:0;
+}
+.user-info-container{
+    scale:0;
+}
+.form-container{
+    scale: 0;
 }
 [grant-access-btn]{
     padding: .5em;
     cursor: pointer;
 }
+.current-tab{
+    background-color: yellow;
+    border-radius:10px;
+    color: red;
+    padding-top: .5em;
+}
+    .active{
+        scale: 1;
+    }

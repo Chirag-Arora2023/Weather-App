@@ -13,8 +13,8 @@
         <h1>Weather App</h1>
         <!-- TAB CONTAINER -->
         <div class="tab-container">
-            <div class="tab" data-user-weather>Your Weather</div>
-            <div class="tab" data-search-weather>Search Weather</div>
+            <div class="tab" data-user-tab>Your Weather</div>
+            <div class="tab" data-search-tab>Search Weather</div>
         </div>
             
         <!-- WEATHER CONTAINER -->
@@ -26,7 +26,7 @@
                 <img location-img src="./assets/location.png" height="80" width="80" loading="lazy">
                 <p>Grant Location Access</p>
                 <p>Allow Access To Get Weather Information</p>
-                <button grant-access-btn type="submit">GRANT ACCESS</button>
+                <button data-grant-access-btn type="submit">GRANT ACCESS</button>
             </div>
 
             <!-- SEARCH WEATHER FORM -->
@@ -44,10 +44,10 @@
             </div>
 
             <!-- SHOW WEATHER INFO  -->
-            <div class="user--info-container">
+            <div class="user-info-container ">
                 <div class="name">
                     <p data-cityName></p>
-                    <img src="" data-flag>
+                    <img src="" data-flag width="10" height="10" loading="lazy">
                 </div>
                 <p data-weatherDesc></p>
                 <img data-weatherIcon src="" loading="lazy">
