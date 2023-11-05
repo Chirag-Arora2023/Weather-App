@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#wrapper{
+    background: linear-gradient(135deg,#0202a487,rgba(0, 115, 255), rgba(99, 167, 227, 0.352));
+    text-align: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    color: #e8dbdb;
+}
+
+
+.tab-container{
+    display: flex;
+    justify-content: space-around;
+}
+.weather-card-container{
+    width: 60%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+.loading-screen-container{
+    scale: 0;
+}
+.active{
+    scale: 1;
+}
+.data-weather-info-container{
+    scale:0;
+}
+[grant-access-btn]{
+    padding: .5em;
+    cursor: pointer;
+}
