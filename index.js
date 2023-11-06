@@ -13,6 +13,7 @@ const loadingScreen = document.querySelector(".loading-screen-container");
 const grantAccessBtn = document.querySelector("[data-grant-access-btn]");
 const searchBtn = document.querySelector(".search-btn");
 const searchInput = document.querySelector("[data-searchInput]");
+const notFound = document.querySelector(".not-found");
 
 
 let currentTab = userTab;
@@ -99,10 +100,10 @@ function renderWeatherInfo(weatherInfo){
     countryFlag.src = `https:flagcdn.com/144x108/${weatherInfo?.sys?.country.toLowerCase()}.png`;
     weatherDesc.textContent = weatherInfo?.weather?.[0]?.description;
     DescIcon.src = `http://openweathermap.org/img/w/${weatherInfo?.weather?.[0]?.icon}.png`;
-    temp.textContent = weatherInfo?.main?.temp;
-    windSpeed.textContent = weatherInfo?.wind?.speed;
-    humidity.textContent = weatherInfo?.main?.humidity;
-    clouds.textContent = weatherInfo?.clouds?.all;
+    temp.textContent = weatherInfo?.main?.temp+"°C";
+    windSpeed.textContent = weatherInfo?.wind?.speed + "m/s";
+    humidity.textContent = weatherInfo?.main?.humidity + "%";
+    clouds.textContent = weatherInfo?.clouds?.all+"%";
 
     
 
@@ -143,6 +144,7 @@ function showLocation(position){
 }
 
 function getLocation(){
+    loadingScreen.classList.add("active");
     if(navigator.geolocation){
         navigator.geolocation.getCurrentPosition(showLocation);
     }
@@ -158,14 +160,23 @@ grantAccessBtn.addEventListener('click',getLocation);
 
 async function fetchSearchWeatherInfo(city){
     loadingScreen.classList.add("active");
-    console.log("entered searchWeatherInfo().");
     
-    let response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`);
-    let data = await response.json();
-    loadingScreen.classList.remove("active");
-    console.log("cityName = "+data);
-    renderWeatherInfo(data);
-    weatherInfo.classList.add("active");
+    try{
+        let response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`);
+        let data = await response.json();
+        console.log(data);
+        if(data?.cod==404)throw new error(404);
+        loadingScreen.classList.remove("active");
+        renderWeatherInfo(data);
+    
+        weatherInfo.classList.add("active");
+    }
+    catch(error){
+
+        loadingScreen.classList.remove("active");
+        weatherInfo.classList.remove("active");
+        notFound.classList.add("active");
+    }
 }
 
 formContainer.addEventListener('submit',(e)=>{

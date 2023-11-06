@@ -5,6 +5,7 @@
 }
 
 #wrapper{
+    padding-top: .5rem;
     background: linear-gradient(135deg,#0202a487,rgba(0, 115, 255), rgba(99, 167, 227, 0.352));
     text-align: center;
     height: 100vh;
@@ -14,10 +15,20 @@
     color: #e8dbdb;
 }
 
+.container{
+    margin-top: 2rem;
+}
 
 .tab-container{
     display: flex;
     justify-content: space-around;
+}
+.tab{
+    transition: all 250ms ease-in-out;
+    letter-spacing: 1px;
+}
+.tab:hover{
+    scale: 1.06;
 }
 .weather-card-container{
     width: 60%;
@@ -26,27 +37,92 @@
     justify-content: space-between;
 }
 .loading-screen-container{
-    scale: 0;
+    display: none;
 }
 .grant-access-container{
-    scale:0;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    font-size: 1.5rem;
+}
+[data-grant-access-btn]{
+    padding: .61rem;
+    background-color: rgba(255, 255, 255, .25);
+    border: 2px solid rgba(255, 255, 255, .55);
+    border-radius: .7rem;
+    cursor: pointer;
+    transition: all 250ms;
+    color: rgb(240, 235, 235);
+    font-weight: bold;
+}
+[data-grant-access-btn]:hover{
+    scale: 1.06;
+}
+.grant-access-container.active{
+    display:flex;
 }
 .user-info-container{
-    scale:0;
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+    display: none;
+}
+.parameter-container{
+    margin: 1em 0;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+.parameter{
+    background-color: #17176b26;
+    padding: 10px;
+    border-radius: 1rem;
 }
 .form-container{
-    scale: 0;
+    display: none;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+.form-container.active{
+    display: flex;
+}
+.form-container input{
+    background-color: rgba(255, 255, 255, .55);
+    padding: .5em;
+    border-radius: 1rem;
+    border: 2px solid rgba(255, 255, 255, .55);
+}
+.form-container img{
+    background-color: rgba(255, 255, 255, .55);
+    color: black;
+}
+[data-temp]{
+    font-size: 1.5rem;
+}
+.name{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form-container.active{
+    display: flex;
 }
 [grant-access-btn]{
     padding: .5em;
     cursor: pointer;
 }
 .current-tab{
-    background-color: yellow;
+    background-color: rgba(255, 255, 255, .30);
     border-radius:10px;
-    color: red;
-    padding-top: .5em;
+    color: whitesmoke;
+    padding: .5rem;
 }
-    .active{
-        scale: 1;
-    }
+.active{
+    display: block;
+}
+
+.not-found{
+    display: none;
+}
