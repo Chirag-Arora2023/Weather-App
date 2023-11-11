@@ -134,14 +134,11 @@ async function fetchUserWeatherInfo(coordinates){
 
 
 
-function showLocation(position){
-    let lat = position.coords.latitude;
-    let lon = position.coords.longitude;
-    let location = {lat,lon};
 
-    sessionStorage.setItem("user-coordinates",JSON.stringify(location));
-    fetchUserWeatherInfo(location);
-}
+
+grantAccessBtn.addEventListener('click',getLocation);
+
+
 
 function getLocation(){
     loadingScreen.classList.add("active");
@@ -153,10 +150,14 @@ function getLocation(){
     }
 }
 
-grantAccessBtn.addEventListener('click',getLocation);
+function showLocation(position){
+    let lat = position.coords.latitude;
+    let lon = position.coords.longitude;
+    let location = {lat,lon};
 
-
-
+    sessionStorage.setItem("user-coordinates",JSON.stringify(location));
+    fetchUserWeatherInfo(location);
+}
 
 async function fetchSearchWeatherInfo(city){
     loadingScreen.classList.add("active");
