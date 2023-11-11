@@ -141,6 +141,7 @@ grantAccessBtn.addEventListener('click',getLocation);
 
 
 function getLocation(){
+    grantAccess.classList.remove("active");
     loadingScreen.classList.add("active");
     if(navigator.geolocation){
         navigator.geolocation.getCurrentPosition(showLocation);
