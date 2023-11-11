@@ -22,6 +22,7 @@
 .tab-container{
     display: flex;
     justify-content: space-around;
+    padding: .5rem;
 }
 .tab{
     transition: all 250ms ease-in-out;
@@ -117,7 +118,6 @@
     background-color: rgba(255, 255, 255, .30);
     border-radius:10px;
     color: whitesmoke;
-    padding: .5rem;
 }
 .active{
     display: block;
